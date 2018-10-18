@@ -8,9 +8,9 @@ import {
     Button
 } from 'react-native';
 
-export default class MyHomeScreen extends React.Component {
+export default class Settings extends React.Component {
     static navigationOptions = {
-        drawerLabel: 'Home',
+        drawerLabel: 'Settings',
         // drawerIcon: ({ tintColor }) => (
         //     <Image
         //         source={require('./chats-icon.png')}
