@@ -1,0 +1,1 @@
+A simple app, that allows to write down your ideas and create notes.

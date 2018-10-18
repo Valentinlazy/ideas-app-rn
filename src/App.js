@@ -13,7 +13,9 @@ export default class App extends React.Component {
             storageBucket: "ideas-app-d984b.appspot.com",
             messagingSenderId: "445764346787"
         };
-        firebase.initializeApp(config);
+        if (!firebase.apps.length) {
+            firebase.initializeApp(config);
+        }
     }
 
   render() {
