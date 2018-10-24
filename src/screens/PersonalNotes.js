@@ -3,7 +3,7 @@ import {
     Button
 } from 'react-native';
 
-export default class MyNotificationsScreen extends React.Component {
+export default class PersonalNotes extends React.Component {
     static navigationOptions = {
         drawerLabel: 'Personal notes',
     };
