@@ -55,12 +55,9 @@ export default function reducer (state = INITIAL_STATE, action) {
 };
 
 export const watchMainPagePosts = () => {
-    console.log('hi1');
     return function(dispatch) {
         firebase.database().ref('mainFeedPosts/').on('value', function(snapshot) {
             let mainPagePosts = snapshot.val();
-            console.log('hi2');
-            console.log(mainPagePosts);
             let actionMainPagePosts = feedSuccess(mainPagePosts);
             dispatch(actionMainPagePosts);
         }, function(error) {
