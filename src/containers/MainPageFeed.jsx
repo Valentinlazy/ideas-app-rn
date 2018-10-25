@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import PropTypes from "prop-types";
 import {watchMainPagePosts} from "../modules/mainPageFeed";
 import MainPageFeedItem from '../components/MainPageFeedItem';
 
@@ -9,9 +10,10 @@ class MainFeedPage extends React.Component {
     }
 
     render() {
-        if (this.props.feedNotes) {
+        const {feedNotes} = this.props;
+        if (feedNotes) {
             return (
-                <MainPageFeedItem data={this.props.feedNotes}/>
+              <MainPageFeedItem data={feedNotes} />
             )
         }
         return null;
@@ -28,6 +30,10 @@ const mapDispatchToProps = (dispatch) => {
     return {
         watchMainPagePosts: () => dispatch(watchMainPagePosts())
     };
+};
+
+MainFeedPage.propTypes = {
+    feedNotes: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(MainFeedPage);

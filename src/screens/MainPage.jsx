@@ -1,7 +1,5 @@
 import React from 'react';
 import {
-    FlatList,
-    Text,
     View,
     StyleSheet
 } from 'react-native';
@@ -16,7 +14,7 @@ export default class MainPage extends React.Component {
     render() {
         return (
             <View style={styles.container}>
-                <MainPageFeed/>
+                <MainPageFeed />
             </View>
         );
     }

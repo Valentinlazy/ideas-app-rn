@@ -1,11 +1,10 @@
 import React from 'react';
-import {Text} from 'react-native';
 import {createDrawerNavigator, createStackNavigator} from 'react-navigation';
 import {DrawerActions} from 'react-navigation-drawer';
+import {Icon} from 'react-native-elements';
 import MainPage from '../screens/MainPage';
 import PersonalNotes from '../screens/PersonalNotes';
 import Settings from '../screens/Settings';
-import {Icon} from 'react-native-elements';
 
 const DrawerNavigation = createDrawerNavigator({
     Home: {
@@ -27,7 +26,7 @@ const DrawerStackNavigation = createStackNavigator({
     navigationOptions: ({navigation}) => ({
         headerStyle: {backgroundColor: 'lightblue'},
         title: 'Ideas App',
-        headerLeft: <Icon name='menu' type='Feather' onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())}/>
+        headerLeft: <Icon name='menu' type='Feather' onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())} />
     })
 });
 

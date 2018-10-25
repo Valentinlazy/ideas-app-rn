@@ -1,10 +1,9 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
-import * as firebase from 'firebase';
-import DrawerNavigation from './navigation/DrawerNavigator';
+import {StyleSheet, View} from 'react-native';
 import {applyMiddleware, createStore} from 'redux';
 import {Provider} from 'react-redux';
 import thunk from 'redux-thunk';
+import DrawerNavigation from './navigation/DrawerNavigator';
 import reducer from './modules/mainPageFeed';
 
 const store = createStore(reducer, applyMiddleware(thunk));
@@ -15,7 +14,7 @@ export default class App extends React.Component {
         return (
             <Provider store={store}>
                 <View style={styles.container}>
-                    <DrawerNavigation/>
+                    <DrawerNavigation />
                 </View>
             </Provider>
         );
