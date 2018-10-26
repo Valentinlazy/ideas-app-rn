@@ -52,7 +52,7 @@ export default function reducer (state = INITIAL_STATE, action) {
         default:
             return state;
     }
-};
+}
 
 export const watchMainPagePosts = () => {
     return function(dispatch) {

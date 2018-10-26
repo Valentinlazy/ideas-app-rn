@@ -1,3 +1,5 @@
+// @flow
+
 import React from 'react';
 import {createDrawerNavigator, createStackNavigator} from 'react-navigation';
 import {DrawerActions} from 'react-navigation-drawer';

@@ -1,3 +1,5 @@
+//@flow
+
 import React from 'react';
 import {
     View,
@@ -5,8 +7,7 @@ import {
 } from 'react-native';
 import MainPageFeed from '../containers/MainPageFeed';
 
-
-export default class MainPage extends React.Component {
+export default class MainPage extends React.Component<*> {
     static navigationOptions = {
         drawerLabel: 'Home',
     };

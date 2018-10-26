@@ -1,13 +1,18 @@
+//@flow
+
 import React from 'react';
 import {FlatList, Text} from "react-native";
 import {Card} from "react-native-elements";
-import PropTypes from 'prop-types';
 
-export default class MainPageFeedItem extends React.Component {
+type Props = {
+    data: Array<Object>
+};
 
-    _keyExtractor = (item, index) => index.toString();
+export default class MainPageFeedItem extends React.Component<Props> {
 
-    _renderItem = ({item}) => (
+    _keyExtractor = (item: Object, index: number) => index.toString();
+
+    _renderItem = ({item}: Object) => (
         <Card
             title={item.title}
             image={item.image ? {uri: item.image} : null}
@@ -30,6 +35,3 @@ export default class MainPageFeedItem extends React.Component {
     }
 }
 
-MainPageFeedItem.propTypes = {
-    data: PropTypes.arrayOf(PropTypes.object).isRequired,
-};
