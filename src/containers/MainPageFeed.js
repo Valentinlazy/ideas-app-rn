@@ -2,7 +2,8 @@
 
 import React from 'react';
 import {connect} from 'react-redux';
-import {watchMainPagePosts} from "../modules/mainPageFeed";
+import {watchMainPagePosts} from '../modules/mainPageFeed';
+import type {State, Dispatch} from '../modules/mainPageFeed';
 import MainPageFeedItem from '../components/MainPageFeedItem';
 
 type Props = {
@@ -26,13 +27,13 @@ class MainFeedPage extends React.Component<Props> {
     }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state: State) => {
     return {
         feedNotes: state.feedNotes
     };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch: Dispatch) => {
     return {
         watchMainPagePosts: () => dispatch(watchMainPagePosts())
     };
