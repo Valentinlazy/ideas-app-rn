@@ -7,6 +7,7 @@ import {Icon} from 'react-native-elements';
 import MainPage from '../screens/MainPage';
 import PersonalNotes from '../screens/PersonalNotes';
 import Settings from '../screens/Settings';
+import LogIn from '../screens/LogIn';
 
 const DrawerNavigation = createDrawerNavigator({
     Home: {
@@ -16,7 +17,7 @@ const DrawerNavigation = createDrawerNavigator({
         screen: PersonalNotes,
     },
     Settings: {
-        screen : Settings,
+        screen: Settings,
     }
 
 });
@@ -28,8 +29,47 @@ const DrawerStackNavigation = createStackNavigator({
     navigationOptions: ({navigation}) => ({
         headerStyle: {backgroundColor: 'lightblue'},
         title: 'Ideas App',
-        headerLeft: <Icon name='menu' type='Feather' onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())} />
+        headerLeft: <Icon
+            name='menu'
+            type='feather'
+            onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())}
+        />,
+        headerRight: <Icon
+            name='log-out'
+            type='feather'
+            onPress={() => {
+                let logOut = navigation.getParam('logOut');
+                console.log(navigation.getParam('logOut'));
+                logOut();
+            }}
+        />
     })
 });
 
-export default DrawerStackNavigation;
+const LoginStack = createStackNavigator({
+    LoginScreen: {
+        screen: LogIn,
+    }
+}, {
+    headerMode: 'float',
+    navigationOptions: {
+        headerStyle: {backgroundColor: 'lightblue'},
+        title: 'Ideas App'
+    }
+});
+
+const PrimaryNav = createStackNavigator({
+    loginStack: {
+        screen: LoginStack
+    },
+    drawerStack: {
+        screen: DrawerStackNavigation
+    }
+}, {
+    headerMode: 'none',
+    title: 'Ideas App',
+    initialRouteName: 'loginStack',
+});
+
+
+export default PrimaryNav;
