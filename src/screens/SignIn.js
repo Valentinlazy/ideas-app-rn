@@ -1,36 +1,14 @@
 import React from 'react';
 import {
     View,
-    StyleSheet
+    StyleSheet,
+    AsyncStorage
 } from 'react-native';
-import {Button} from 'react-native-elements'
+import {Button, Icon} from 'react-native-elements'
 import Expo from "expo";
 import {iosClientId, androidClientId} from "../constants/authenticationIds";
 
-export default class LogIn extends React.Component {
-    static navigationOptions = {
-        drawerLabel: 'Home',
-    };
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            isLoggedIn: false,
-            name: '',
-            userId: ''
-
-        }
-    }
-
-    logOut = () => {
-        const {navigation} = this.props;
-        navigation.navigate('loginStack');
-        this.setState({
-            isLoggedIn: false,
-            name: '',
-            userId: ''
-            });
-    };
+export default class SignIn extends React.Component {
 
     signIn = async () => {
         try {
@@ -41,16 +19,15 @@ export default class LogIn extends React.Component {
             });
 
             if (result.type === "success") {
-                this.setState({
-                    isLoggedIn: true,
-                    name: result.user.name,
-                    userId: result.idToken
-                });
-                console.log(this.state);
+                console.log(result);
+                // this.setState({
+                //     isLoggedIn: true,
+                //     name: result.user.name,
+                //     userId: result.user.id
+                // });
+                AsyncStorage.multiSet([['userId', result.user.id], ['userName', result.user.name]]);
                 const {navigation} = this.props;
-                navigation.navigate('drawerStack', {
-                    logOut: this.logOut,
-                });
+                navigation.navigate('App');
             } else {
                 console.log("cancelled")
             }
