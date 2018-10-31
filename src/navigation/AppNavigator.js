@@ -1,3 +1,5 @@
+//@flow
+
 import {createSwitchNavigator, createStackNavigator} from 'react-navigation';
 import DrawerStackNavigator from './DrawerNavigator';
 import SignIn from '../screens/SignIn';

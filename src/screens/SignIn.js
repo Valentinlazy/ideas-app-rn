@@ -1,14 +1,16 @@
+//@flow
+
 import React from 'react';
 import {
     View,
     StyleSheet,
     AsyncStorage
 } from 'react-native';
-import {Button, Icon} from 'react-native-elements'
+import {Button} from 'react-native-elements'
 import Expo from "expo";
 import {iosClientId, androidClientId} from "../constants/authenticationIds";
 
-export default class SignIn extends React.Component {
+export default class SignIn extends React.Component<*> {
 
     signIn = async () => {
         try {

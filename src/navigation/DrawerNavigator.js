@@ -14,7 +14,7 @@ import MainPage from '../screens/MainPage';
 import PersonalNotes from '../screens/PersonalNotes';
 import Settings from '../screens/Settings';
 
-const DrawerWithLogoutButton = (props) => (
+const DrawerWithLogoutButton = (props: Object) => (
     <ScrollView>
         <SafeAreaView forceInset={{top: 'always', horizontal: 'never'}}>
             <DrawerItems {...props} />
