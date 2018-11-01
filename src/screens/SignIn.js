@@ -8,9 +8,14 @@ import {
 } from 'react-native';
 import {Button} from 'react-native-elements'
 import Expo from "expo";
+import { NavigationStateRoute, NavigationScreenProp } from 'react-navigation';
 import {iosClientId, androidClientId} from "../constants/authenticationIds";
 
-export default class SignIn extends React.Component<*> {
+type Props = {
+    navigation: NavigationScreenProp<NavigationStateRoute>
+};
+
+export default class SignIn extends React.Component<Props> {
 
     signIn = async () => {
         try {

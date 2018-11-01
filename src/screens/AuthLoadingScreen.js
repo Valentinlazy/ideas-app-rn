@@ -7,8 +7,13 @@ import {
     StatusBar, StyleSheet,
     View,
 } from 'react-native';
+import {NavigationScreenProp, NavigationStateRoute} from "react-navigation";
 
-export default class AuthLoadingScreen extends React.Component<*> {
+type Props = {
+    navigation: NavigationScreenProp<NavigationStateRoute>
+};
+
+export default class AuthLoadingScreen extends React.Component<Props> {
 
     constructor(props: Object) {
         super(props);
