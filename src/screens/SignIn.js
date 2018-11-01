@@ -26,12 +26,6 @@ export default class SignIn extends React.Component<Props> {
             });
 
             if (result.type === "success") {
-                console.log(result);
-                // this.setState({
-                //     isLoggedIn: true,
-                //     name: result.user.name,
-                //     userId: result.user.id
-                // });
                 AsyncStorage.multiSet([['userId', result.user.id], ['userName', result.user.name]]);
                 const {navigation} = this.props;
                 navigation.navigate('App');
