@@ -2,4 +2,3 @@ node_modules/**/*
 .expo/*
 npm-debug.*
 .idea/*
-package-lock.json

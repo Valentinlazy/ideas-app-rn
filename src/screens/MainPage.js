@@ -1,19 +1,29 @@
+//@flow
+
 import React from 'react';
 import {
-    Button
+    View,
+    StyleSheet
 } from 'react-native';
+import MainPageFeed from '../containers/MainPageFeed';
 
-export default class MyHomeScreen extends React.Component {
+export default class MainPage extends React.Component<*> {
     static navigationOptions = {
         drawerLabel: 'Home',
     };
 
     render() {
         return (
-            <Button
-                onPress={() => this.props.navigation.navigate('PersonalNotes')}
-                title="Go to PersonalNotes"
-            />
+            <View style={styles.container}>
+                <MainPageFeed />
+            </View>
         );
     }
 }
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#e8fcff',
+    },
+});
